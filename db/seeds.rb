@@ -1,4 +1,7 @@
 # create seed data here!
+Walk.destroy_all
+Dog.destroy_all
+DogWalker.destroy_all
 
 10.times do
     Dog.create(
@@ -25,7 +28,9 @@ end
 
 20.times do
     Walk.create(
-    length_in_minutes: Faker::Number.number(digits: 2)
+    length_in_minutes: Faker::Number.number(digits: 2),
+    dog_id: Dog.ids.sample,
+    dog_walker_id: DogWalker.ids.sample
     )
 end
 
